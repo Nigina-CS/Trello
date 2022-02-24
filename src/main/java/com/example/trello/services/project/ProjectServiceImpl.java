@@ -10,7 +10,6 @@ import com.example.trello.repository.ProjectRepository;
 import com.example.trello.services.AbstractService;
 import com.example.trello.utils.validators.project.ProjectValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
@@ -24,7 +23,7 @@ public class ProjectServiceImpl extends AbstractService<ProjectRepository, Proje
     private final ProjectValidator validator;
 
     @Autowired
-    protected ProjectServiceImpl(ProjectRepository repository, @Qualifier(value = "projectMapper") ProjectMapper mapper, ProjectValidator validator) {
+    protected ProjectServiceImpl(ProjectRepository repository, ProjectMapper mapper, ProjectValidator validator) {
         super(repository, mapper, validator);
         this.validator = validator;
     }

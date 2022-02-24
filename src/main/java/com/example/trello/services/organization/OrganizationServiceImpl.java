@@ -10,7 +10,6 @@ import com.example.trello.repository.OrganizationRepository;
 import com.example.trello.services.AbstractService;
 import com.example.trello.utils.validators.organization.OrganizationValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public class OrganizationServiceImpl extends AbstractService<OrganizationReposit
 
 
     @Autowired
-    protected OrganizationServiceImpl(OrganizationRepository repository, @Qualifier(value = "organizationMapper") OrganizationMapper mapper, OrganizationValidator validator) {
+    protected OrganizationServiceImpl(OrganizationRepository repository,  OrganizationMapper mapper, OrganizationValidator validator) {
         super(repository, mapper, validator);
     }
 

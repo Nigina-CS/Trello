@@ -6,7 +6,6 @@ import com.example.trello.exception.ValidationException;
 import com.example.trello.utils.BaseUtils;
 import com.example.trello.utils.validators.AbstractValidator;
 import com.example.trello.utils.validators.Validator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -50,7 +50,7 @@ public class ProjectController extends AbstractController<ProjectService>{
     }
 
     @RequestMapping(value = "/delete/{id}",method = RequestMethod.POST)
-    public String deletePage(@PathVariable(name ="id") Long id) {
+    public String delete(@PathVariable(name ="id") Long id) {
         service.delete(id);
         return "redirect: project/list";
     }
@@ -61,13 +61,13 @@ public class ProjectController extends AbstractController<ProjectService>{
         return "redirect: project/list";
     }
 
-    @RequestMapping(value = "/archive/{id}",method = RequestMethod.POST)
+    @RequestMapping(value = "/unarchive/{id}",method = RequestMethod.POST)
     public String unarchive(@PathVariable(name ="id") Long id) {
         service.archive(id);
         return "redirect: project/list";
     }
 
-    @RequestMapping(value = "/archive/{id}",method = RequestMethod.POST)
+    @RequestMapping(value = "/close/{id}",method = RequestMethod.POST)
     public String close(@PathVariable(name ="id") Long id) {
         service.archive(id);
         return "redirect: project/list";

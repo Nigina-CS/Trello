@@ -1,16 +1,13 @@
 package com.example.trello.dto.task;
 
 import com.example.trello.dto.Dto;
-import com.example.trello.entity.auth.AuthUser;
-import com.example.trello.entity.comment.Comment;
 import com.example.trello.entity.project.Project;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter

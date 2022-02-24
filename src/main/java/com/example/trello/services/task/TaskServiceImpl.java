@@ -9,7 +9,6 @@ import com.example.trello.mapper.TaskMapper;
 import com.example.trello.repository.TaskRepository;
 import com.example.trello.services.AbstractService;
 import com.example.trello.utils.validators.task.TaskValidator;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +16,7 @@ import java.util.List;
 @Service
 public class TaskServiceImpl extends AbstractService<TaskRepository, TaskMapper, TaskValidator>
         implements TaskService {
-    public TaskServiceImpl(TaskRepository repository, @Qualifier(value = "taskMapper") TaskMapper mapper, TaskValidator validator) {
+    public TaskServiceImpl(TaskRepository repository,  TaskMapper mapper, TaskValidator validator) {
         super(repository, mapper, validator);
     }
 

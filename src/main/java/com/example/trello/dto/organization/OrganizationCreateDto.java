@@ -1,7 +1,10 @@
 package com.example.trello.dto.organization;
 
 import com.example.trello.dto.Dto;
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
 @Getter

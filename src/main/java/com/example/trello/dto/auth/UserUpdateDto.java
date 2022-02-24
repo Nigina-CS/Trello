@@ -1,7 +1,10 @@
 package com.example.trello.dto.auth;
 
 import com.example.trello.dto.GenericDto;
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
