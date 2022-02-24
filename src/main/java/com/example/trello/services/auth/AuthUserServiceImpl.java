@@ -1,6 +1,5 @@
 package com.example.trello.services.auth;
 
-
 import com.example.trello.criteria.GenericCriteria;
 import com.example.trello.dto.auth.UserCreateDto;
 import com.example.trello.dto.auth.UserDto;
@@ -57,6 +56,10 @@ public class AuthUserServiceImpl extends AbstractService<AuthUserRepository, Aut
 
     @Override
     public Long totalCount(GenericCriteria criteria) {
+        return null;
+    }
+
+    public List<UserDto> findAllByOrganization_Id()  {
         return null;
     }
 }

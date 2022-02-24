@@ -34,7 +34,6 @@ public class AuthUserController extends AbstractController<AuthUserService> {
         return "redirect: auth/list";
     }
 
-
     @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
     public String deletePage(Model model, @PathVariable(name = "id") Long id) {
         model.addAttribute("user", service.get(id));
@@ -82,4 +81,10 @@ public class AuthUserController extends AbstractController<AuthUserService> {
         service.unblock(id);
         return "redirect: auth/list";
     }
+
+    @RequestMapping(value = "getbyorgid/{id}",method = RequestMethod.POST)
+    public String getAllByOrgId (@PathVariable(name = "id") Long id) {
+        service.get
+    }
+
 }
