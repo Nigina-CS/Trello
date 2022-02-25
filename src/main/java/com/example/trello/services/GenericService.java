@@ -37,7 +37,16 @@ public interface GenericService <
         return null;
     }
 
-    default List<D> getAllById(K id) {
+    default List<D> getAllByTaskId(K id) {
         return null;
     }
+
+    default List<D> getAllByOrgId(K id) {
+        return null;
+    }
+
+    default List<D> getAllAdminsByOrgId(K id) {
+        return null;
+    }
+
 }

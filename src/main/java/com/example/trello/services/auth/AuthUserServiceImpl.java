@@ -59,7 +59,21 @@ public class AuthUserServiceImpl extends AbstractService<AuthUserRepository, Aut
         return null;
     }
 
-    public List<UserDto> findAllByOrganization_Id()  {
+
+    @Override
+    public List<UserDto> getAllByOrgId(Long id)  {
+        List<AuthUser> authUsers = repository.findAllByOrganization_Id(id);
+        return mapper.toDto(authUsers);
+    }
+
+    @Override
+    public List<UserDto> getAllAdminsByOrgId(Long id) {
+        List<AuthUser> authUsers = repository.findAllByOrganization_Id(id);
+        List<Long> userId = null;
+        for (AuthUser authUser : authUsers) {
+              userId.add(authUser.getId());
+            }
+
         return null;
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/comment/*")
 public class CommentController extends AbstractController<CommentService> {
+
     public CommentController(CommentService service) {
         super(service);
     }
@@ -53,7 +54,7 @@ public class CommentController extends AbstractController<CommentService> {
 
     @GetMapping("get/{id}/")
     public String list(Model model, @PathVariable(name = "id") Long id) {
-        model.addAttribute("comments",service.getAllById(id));
+        model.addAttribute("comments",service.getAllByTaskId(id));
         return "/comment/list";
     }
 

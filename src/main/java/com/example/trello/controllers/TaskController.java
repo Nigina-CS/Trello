@@ -57,11 +57,12 @@ public class TaskController extends AbstractController<TaskService>  {
 
     @RequestMapping(value = "list/{id}/",method = RequestMethod.POST)
     public String list(@PathVariable(name ="id") Long id) {
-        service.getAllById(id);
+        service.getAllByTaskId(id);
         return "redirect:/task/list";
     }
 
-
-
+    public String getByColumnId(@PathVariable(name = "id") Long id) {
+        return "";
+    }
 
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long>, AbstractRepository{
 
-    @Query(value = "from Task where project = :id")
-    List<Task> findAllByProject_Id(@Param("id") Long id);
+    @Query(value = "from Task where project = :id and state = :name")
+    List<Task> findAllByProject_Id(@Param("id") Long id,@Param(("name")) String name);
 }
 

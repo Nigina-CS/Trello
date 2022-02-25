@@ -22,6 +22,6 @@ public interface AuthUserRepository extends JpaRepository<AuthUser,Long>,Abstrac
     @Query(value = "insert into task_member (user_id,task_id) values (?1, ?2)", nativeQuery = true)
     void addTaskMember(Long userId, Long taskId);
 
-    @Query(value = "select user_id from project_member where task_id = ?",nativeQuery = true)
+    @Query(value = "select user_id from task_member where task_id = ?",nativeQuery = true)
     List<Long>  getTaskMembers(Long taskId);
 }

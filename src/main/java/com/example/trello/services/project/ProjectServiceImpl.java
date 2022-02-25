@@ -14,6 +14,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,6 +33,14 @@ public class ProjectServiceImpl extends AbstractService<ProjectRepository, Proje
     public Long create(ProjectCreateDto createDto) {
         Project project = mapper.fromCreateDto(createDto);
         repository.save(project);
+        List<String> columns = new ArrayList<>();
+        columns.add("todo");
+        columns.add("process");
+        columns.add("checking");
+        columns.add("done");
+        for (String column : columns) {
+            repository.addProjectColumns(column,project.getId());
+        }
         return project.getId();
     }
 
@@ -65,20 +74,20 @@ public class ProjectServiceImpl extends AbstractService<ProjectRepository, Proje
     }
 
     @Override
-    @Query(value = "update Project p set p.archived = true where p.id = :id")
-    public Void archive(@Param("id") Long id) {
+    public Void archive(Long id) {
+        repository.archive(id);
         return null;
     }
 
     @Override
-    @Query(value = "update Project p set p.archived = false where p.id = :id")
-    public Void unarchive(@Param("id") Long id) {
+    public Void unarchive(Long id) {
+        repository.unarchive(id);
         return null;
     }
 
     @Override
-    @Query(value = "update Project p set p.closed = true where p.id = :id")
-    public Void close(@Param("id") Long id) {
+    public Void close(Long id) {
+        repository.close(id);
         return null;
     }
 

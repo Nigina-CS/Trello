@@ -82,9 +82,10 @@ public class AuthUserController extends AbstractController<AuthUserService> {
         return "redirect: auth/list";
     }
 
-    @RequestMapping(value = "getbyorgid/{id}",method = RequestMethod.POST)
-    public String getAllByOrgId (@PathVariable(name = "id") Long id) {
-        service.get
+    @RequestMapping(value = "getbyorgid/{id}",method = RequestMethod.GET)
+    public String getAllByOrgId (Model model,@PathVariable(name = "id") Long id) {
+        model.addAttribute("users",service.getAllByOrgId(id));
+        return "redirect: auth/list";
     }
 
 }

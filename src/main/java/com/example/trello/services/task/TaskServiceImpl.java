@@ -45,9 +45,9 @@ public class TaskServiceImpl extends AbstractService<TaskRepository, TaskMapper,
         return null;
     }
 
-    @Override
-    public List<TaskDto> getAllById(Long id) {
-        List<Task> allByProject_id = repository.findAllByProject_Id(id);
+
+    public List<TaskDto> getAllTaskByColumnName(Long id,String name) {
+        List<Task> allByProject_id = repository.findAllByProject_Id(id,name);
         return mapper.toDto(allByProject_id);
     }
 

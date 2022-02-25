@@ -4,6 +4,7 @@ import com.example.trello.dto.auth.UserDto;
 import com.example.trello.dto.task.TaskMemberDto;
 import com.example.trello.entity.auth.AuthUser;
 import com.example.trello.entity.project.ProjectMember;
+import com.example.trello.entity.task.TaskMember;
 import com.example.trello.mapper.AuthUserMapper;
 import com.example.trello.repository.AuthUserRepository;
 import com.example.trello.services.BaseService;
@@ -24,9 +25,9 @@ public class TaskMemberService implements BaseService {
     }
 
     public Void add(TaskMemberDto dto) {
-        ProjectMember member;
+        TaskMember member;
         for (Long aLong : dto.getUserId()) {
-            repository.addProjectMember(aLong,dto.getTaskId());
+            repository.addTaskMember(aLong,dto.getTaskId());
         }
         return null;
     }

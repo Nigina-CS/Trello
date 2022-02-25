@@ -35,7 +35,7 @@ public class CommentServiceImpl extends AbstractService<
     @Override
     public Void update(CommentUpdateDto updateDto) {
         Comment comment = mapper.fromUpdateDto(updateDto);
-        repository.update(comment.getId(), comment.getContext());
+        repository.save(comment);
         return null;
     }
 
@@ -61,8 +61,9 @@ public class CommentServiceImpl extends AbstractService<
         return null;
     }
 
+
     @Override
-    public List<CommentDto> getAllById(Long id) {
+    public List<CommentDto> getAllByTaskId(Long id) {
         List<Comment> comments = repository.findAllByTask_Id(id);
         return mapper.toDto(comments);
 
