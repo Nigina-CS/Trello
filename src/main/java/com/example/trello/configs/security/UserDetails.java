@@ -1,8 +1,10 @@
 package com.example.trello.configs.security;
 
+import com.example.trello.dto.permission.PermissionDto;
 import com.example.trello.entity.auth.AuthUser;
 import com.example.trello.entity.auth.Permission;
-import com.example.trello.entity.auth.Role;
+import com.example.trello.services.auth.AuthUserService;
+import com.example.trello.services.permission.PermissionService;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -10,6 +12,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class UserDetails implements org.springframework.security.core.userdetails.UserDetails{
+
+    private PermissionService service;
+
     private AuthUser user;
     private Long id;
 
@@ -27,15 +32,7 @@ public class UserDetails implements org.springframework.security.core.userdetail
 
         Set<GrantedAuthority> authorities = new HashSet<>();
 
-        Role role = user.getRole();
-
-        if (Objects.isNull(role)) {
-            return authorities;
-        }
-
-        authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getCode()));
-
-        List<Permission> permissions = role.getPermissions();
+        List<PermissionDto> permissions = service.getPermissionByUserId(id);
 
         if (Objects.isNull(permissions)) {
             return authorities;

@@ -17,10 +17,9 @@ public class UserUpdateDto extends GenericDto {
     private String password;
     private String profile;
     private boolean active;
-    private Long roleId;
 
     @Builder(builderMethodName = "childBuilder")
-    public UserUpdateDto(Long id, String firstName, String lastName, String email, String password, String profile, boolean active, Long roleId) {
+    public UserUpdateDto(Long id, String firstName, String lastName, String email, String password, String profile, boolean active) {
         super(id);
         this.firstName = firstName;
         this.lastName = lastName;
@@ -28,6 +27,5 @@ public class UserUpdateDto extends GenericDto {
         this.password = password;
         this.profile = profile;
         this.active = active;
-        this.roleId = roleId;
     }
 }

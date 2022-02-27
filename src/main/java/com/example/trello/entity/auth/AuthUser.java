@@ -7,9 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,12 +23,20 @@ public class AuthUser extends Auditable {
     private String profile;
     private boolean active;
     private boolean blocked;
+    private boolean isAdmin;
     private boolean isSuper;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "auth_permission",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "permission_id", referencedColumnName = "id")
+    )
+    private List<Permission> permissions;
 
     @ManyToOne
     private Organization organization;
 
-    @OneToOne(mappedBy = "user")
-    private Role role;
+
 
 }

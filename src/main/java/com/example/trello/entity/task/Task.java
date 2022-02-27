@@ -28,10 +28,10 @@ public class Task extends Auditable {
 
     private boolean closed;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "task_member", joinColumns = {@JoinColumn(name = "task_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")})
-    private List<AuthUser> users;
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "task_member", joinColumns = {@JoinColumn(name = "task_id", referencedColumnName = "id")},
+//            inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")})
+//    private List<AuthUser> users;
 
     @ManyToOne
     private Project project;

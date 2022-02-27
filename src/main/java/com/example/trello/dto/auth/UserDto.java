@@ -19,10 +19,9 @@ public class UserDto extends GenericDto {
     private boolean blocked;
     private boolean isSuper;
     private Long organizationId;
-    private Long roleId;
 
     @Builder(builderMethodName = "childBuilder")
-    public UserDto(Long id,String firstName, String lastName, String email, String password, String profile, boolean active, boolean blocked, boolean isSuper, Long organizationId, Long roleId) {
+    public UserDto(Long id,String firstName, String lastName, String email, String password, String profile, boolean active, boolean blocked, boolean isSuper, Long organizationId) {
         super(id);
         this.firstName = firstName;
         this.lastName = lastName;
@@ -33,6 +32,5 @@ public class UserDto extends GenericDto {
         this.blocked = blocked;
         this.isSuper = isSuper;
         this.organizationId = organizationId;
-        this.roleId = roleId;
     }
 }

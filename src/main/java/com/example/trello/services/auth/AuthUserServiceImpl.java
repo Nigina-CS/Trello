@@ -67,13 +67,16 @@ public class AuthUserServiceImpl extends AbstractService<AuthUserRepository, Aut
     }
 
     @Override
-    public List<UserDto> getAllAdminsByOrgId(Long id) {
-        List<AuthUser> authUsers = repository.findAllByOrganization_Id(id);
-        List<Long> userId = null;
-        for (AuthUser authUser : authUsers) {
-              userId.add(authUser.getId());
-            }
-
+    public Void block(Long id) {
+        repository.blockUser(id);
         return null;
     }
+
+    @Override
+    public Void unblock(Long id) {
+        repository.unblockUser(id);
+        return null;
+    }
+
+
 }

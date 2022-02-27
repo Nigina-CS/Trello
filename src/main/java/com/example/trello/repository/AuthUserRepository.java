@@ -19,9 +19,18 @@ public interface AuthUserRepository extends JpaRepository<AuthUser,Long>,Abstrac
     @Query(value = "select user_id from project_member where project_id = ?",nativeQuery = true)
     List<Long>  getProjectMembers(Long projectId);
 
+    @Query(value = "delete from project_member where user_id = ?1 and project_id = ?2",nativeQuery = true)
+    Void deleteByProjectId(Long userId,Long projectId);
+
     @Query(value = "insert into task_member (user_id,task_id) values (?1, ?2)", nativeQuery = true)
     void addTaskMember(Long userId, Long taskId);
 
     @Query(value = "select user_id from task_member where task_id = ?",nativeQuery = true)
     List<Long>  getTaskMembers(Long taskId);
+
+    @Query(value = "update auth_user set blocked = true where id = ?",nativeQuery = true)
+    Void blockUser(Long id);
+
+    @Query(value = "update auth_user set blocked = false where id = ?",nativeQuery = true)
+    Void unblockUser(Long id);
 }

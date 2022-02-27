@@ -30,10 +30,10 @@ public class Project extends Auditable {
     private boolean archived;
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "project_member", joinColumns = {@JoinColumn(name = "project_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")})
-    private List<AuthUser> users;
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "project_member", joinColumns = {@JoinColumn(name = "project_id", referencedColumnName = "id")},
+//            inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")})
+//    private List<AuthUser> users;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "project_id")

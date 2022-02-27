@@ -19,29 +19,5 @@ public class PermissionController extends AbstractController<PermissionService> 
         super(service);
     }
 
-    @GetMapping("create/")
-    public String createPage() {
-        return "auth/permission/create";
-    }
-
-    @PostMapping("create/")
-    public String create(@ModelAttribute PermissionCreateDto permissionCreateDto) {
-        service.create(permissionCreateDto);
-        return "redirect:/auth/permission";
-    }
-
-    @GetMapping("all/")
-    public String all(Model model) {
-        List<PermissionDto> all = service.getAll(new GenericCriteria());
-        model.addAttribute("permissions", all);
-        return "auth/permission/all";
-    }
-
-    @GetMapping("user_permission/{id}/")
-    public String userPermission(@PathVariable Long id, Model model) {
-        List<PermissionDto> permissions = service.getAllByUserId(id);
-        model.addAttribute("permissions", permissions);
-        return "auth/permission/user_permission";
-    }
 
 }

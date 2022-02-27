@@ -6,10 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,5 +22,8 @@ public class Permission implements BaseEntity {
     private String code;
 
     private String name;
+
+    @ManyToMany(mappedBy = "permissions")
+    private List<AuthUser> users;
 
 }

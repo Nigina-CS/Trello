@@ -41,4 +41,9 @@ public class ProjectMemberService implements BaseService {
         List<AuthUser> user = authUsers.stream().flatMap(Optional::stream).collect(Collectors.toList());
         return mapper.toDto(user);
     }
+
+    public Void deleteProjectMember (Long userId,Long projectId) {
+        repository.deleteByProjectId(userId,projectId);
+        return null;
+    }
 }

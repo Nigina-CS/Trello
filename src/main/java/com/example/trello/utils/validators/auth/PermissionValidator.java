@@ -1,7 +1,7 @@
 package com.example.trello.utils.validators.auth;
 
-import com.example.trello.dto.role.RoleCreateDto;
-import com.example.trello.dto.role.RoleUpdateDto;
+import com.example.trello.dto.permission.PermissionCreateDto;
+import com.example.trello.dto.permission.PermissionUpdateDto;
 import com.example.trello.exception.ValidationException;
 import com.example.trello.utils.BaseUtils;
 import com.example.trello.utils.validators.AbstractValidator;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class PermissionValidator extends AbstractValidator<RoleCreateDto, RoleUpdateDto, Long> implements Validator {
+public class PermissionValidator extends AbstractValidator<PermissionCreateDto, PermissionUpdateDto, Long> implements Validator {
     protected PermissionValidator(BaseUtils baseUtils) {
         super(baseUtils);
     }
@@ -21,12 +21,12 @@ public class PermissionValidator extends AbstractValidator<RoleCreateDto, RoleUp
     }
 
     @Override
-    public void validOnCreate(RoleCreateDto roleCreateDto) throws ValidationException {
+    public void validOnCreate(PermissionCreateDto cd) throws ValidationException {
 
     }
 
     @Override
-    public void validOnUpdate(RoleUpdateDto cd) throws ValidationException {
+    public void validOnUpdate(PermissionUpdateDto ud) throws ValidationException {
 
     }
 }

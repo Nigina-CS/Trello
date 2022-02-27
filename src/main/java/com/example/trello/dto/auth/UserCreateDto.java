@@ -18,6 +18,5 @@ public class UserCreateDto implements Dto {
     private String password;
     private String profile;
     private Long organizationId;
-    private Long roleId;
 
 }

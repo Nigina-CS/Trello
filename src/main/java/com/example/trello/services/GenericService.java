@@ -45,8 +45,6 @@ public interface GenericService <
         return null;
     }
 
-    default List<D> getAllAdminsByOrgId(K id) {
-        return null;
-    }
+
 
 }
