@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments.html :: home_header('Home Page','css/home.css')">
+
+</head>
+<body>
+<header>
+    <section th:include="fragments.html :: main"></section>
+    <aside>
+        <section th:include="fragments.html :: nav"></section>
+        <div id="Home">
+            <div class="containerm">
+                <h3>ОсОО “Energi.kg”</h3>
+                <div class="content">
+                    <div class="contents">
+                        <div class="content-text">
+                            <p>Projects</p>
+                            <p>Export</p>
+                        </div>
+                        <div class="box">
+                            <p>ОсОО “Energi.kg”</p>
+                            <div class="box-text">
+                                <span><img th:src="@{imges/sunrise.png}" alt=""/>12/04/2021</span>
+                                <span><img th:src="@{imges/sunset2.png}" alt=""/> 12/04/2021</span>
+                                <span><img th:src="@{imges/users.png}" alt=""/> Adyl, Azhar, Arthur</span>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <p>ОсОО “Energi.kg”</p>
+                            <div class="box-text">
+                                <span><img th:src="@{imges/sunrise.png}" alt="">12/04/2021</span>
+                                <span><img th:src="@{imges/sunset2.png}" alt=""> 12/04/2021</span>
+                                <span><img th:src="@{imges/users.png}" alt=""> Adyl, Azhar, Arthur</span>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <p>ОсОО “Energi.kg”</p>
+                            <div class="box-text">
+                                    <span>
+                                        <img th:src="@{imges/sunrise.png}" alt="">12/04/2021
+                                    </span>
+                                <span>
+                                        <img th:src="@{imges/sunset2.png}" alt=""> 12/04/2021
+                                    </span>
+                                <span>
+                                       <img th:src="@{imges/users.png}" alt=""> Adyl, Azhar, Arthur
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-text">
+                            <p>Tasks</p>
+                        </div>
+                        <div class="box">
+                            <div class="box-text">
+                                <p>ОсОО “Energi.kg”</p>
+                                <span><img th:src="@{imges/sunrise.png}" alt="">12/04/2021</span>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-text">
+                                <p>ОсОО “Energi.kg”</p>
+                                <span><img th:src="@{imges/sunrise.png}" alt="">12/04/2021</span>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-text">
+                                <p>ОсОО “Energi.kg”</p>
+                                <span><img th:src="@{imges/sunrise.png}" alt="">12/04/2021</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="contents">
+                        <div class="content-text">
+                            <p>Projects</p>
+                            <p>Export</p>
+                        </div>
+                        <div class="box">
+                            <p>ОсОО “Energi.kg”</p>
+                            <div class="box-text">
+                                <span><img th:src="@{imges/sunrise.png}" alt=""/>12/04/2021</span>
+                                <span><img th:src="@{imges/sunset2.png}" alt=""/> 12/04/2021</span>
+                                <span><img th:src="@{imges/users.png}" alt=""/> Adyl, Azhar, Arthur</span>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <p>ОсОО “Energi.kg”</p>
+                            <div class="box-text">
+                                <span><img th:src="@{imges/sunrise.png}" alt="">12/04/2021</span>
+                                <span><img th:src="@{imges/sunset2.png}" alt=""> 12/04/2021</span>
+                                <span><img th:src="@{imges/users.png}" alt=""> Adyl, Azhar, Arthur</span>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <p>ОсОО “Energi.kg”</p>
+                            <div class="box-text">
+                                    <span>
+                                        <img th:src="@{imges/sunrise.png}" alt="">12/04/2021
+                                    </span>
+                                <span>
+                                        <img th:src="@{imges/sunset2.png}" alt=""> 12/04/2021
+                                    </span>
+                                <span>
+                                       <img th:src="@{imges/users.png}" alt=""> Adyl, Azhar, Arthur
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-text">
+                            <p>Tasks</p>
+                        </div>
+                        <div class="box">
+                            <div class="box-text">
+                                <p>ОсОО “Energi.kg”</p>
+                                <span><img th:src="@{imges/sunrise.png}" alt="">12/04/2021</span>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-text">
+                                <p>ОсОО “Energi.kg”</p>
+                                <span><img th:src="@{imges/sunrise.png}" alt="">12/04/2021</span>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-text">
+                                <p>ОсОО “Energi.kg”</p>
+                                <span><img th:src="@{imges/sunrise.png}" alt="">12/04/2021</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </aside>
+
+</header>
+
+
+<section th:include="fragments.html :: js"></section>
+<script>
+    const menu = document.querySelector(".menu-bar")
+    const main = document.querySelector("main")
+    menu.addEventListener("click", () => {
+        main.classList.toggle("open")
+    })
+</script>
+</body>

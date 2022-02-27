@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:include="fragments.html :: home_header('Organization Page','/css/home.css')"></head>
+<body>
+<section th:include="model.html :: admin_create"></section>
+
+<header>
+    <section th:include="fragments.html :: main_super"></section>
+    <aside>
+        <section th:include="fragments.html :: nav"></section>
+        <div id="Home">
+            <div class="containerm" th:object="${organization}">
+                <div class="d-flex">
+                    <a th:href="@{/organization/list/}" style="width: 30px" class=""><img
+                            src="https://img.icons8.com/ios-filled/50/000000/left.png" class="img-fluid"/></a>
+                    <h3 class="mt-1 mx-2">Оrganization detail</h3>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="content">
+                            <div class="contents">
+                                <div class="row p-2">
+                                    <div class="col-6">
+                                        <img th:src="@{${organization.logo}}" alt="not found" class="img-thumbnail">
+                                    </div>
+                                    <div class="col-6">
+                                        <h2 th:text="${organization.name}" class="mx-2 ml-3"></h2>
+                                    </div>
+                                </div>
+                                <div class="boxs">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <p><b>Email :</b> <span th:text="${organization.email}"></span></p>
+                                            <p><b>Location :</b> <span th:text="${organization.location}"></span></p>
+                                            <p><b>Code :</b> <span th:text="${organization.code}"></span></p>
+                                        </div>
+                                        <div class="align-text-bottom mt-5">
+                                            <button class=" btn btn-success mt-4" data-toggle="modal" data-target="#orgUpdate">
+                                                Edit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="content">
+                            <div class="contents">
+                                <div class="d-flex justify-content-between">
+                                    <span class="h5"><b>Users of this organization</b></span>
+                                    <button class="btn btn-success mb-2 ml-auto">
+                                        <a href=""class="text-white text-decoration-none">+Add</a>
+                                    </button>
+                                </div>
+                                <div class="bg-white px-3 pt-2 d-flex justify-content-between rounded" th:each="user : ${users}">
+                                    <p th:text="${user.email}"></p>
+                                    <p>
+                                        <span><a th:href="@{/auth/delete/{id}/(id=${user.id})}"><img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-delete-multimedia-kiranshastry-solid-kiranshastry.png"/></a></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</header>
+<section th:include="fragments.html :: js"></section>
+
+</body>
+</html>

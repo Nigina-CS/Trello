@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:include="fragments.html :: home_header('Organization Page','/css/home.css')"></head>
+<body>
+<section th:include="model.html :: org_create"></section>
+
+<header>
+    <section th:include="fragments.html :: main_super"></section>
+    <aside>
+        <section th:include="fragments.html :: nav"></section>
+        <div id="Home">
+            <div class="containerm">
+                <h3>Оrganizations</h3>
+                <div class="content">
+                    <div class="contents" id="all">
+                        <div class="content-text">
+                            <p>Name of Organizations</p>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orgCreate">
+                                + Add
+                            </button>
+                        </div>
+                        <div class="box collapse" th:each="organization : ${organizations}" data-parent="#all">
+                            <p th:text="${organization.name}"></p>
+                            <div class="box-text">
+                                <span><img src="https://img.icons8.com/external-xnimrodx-lineal-xnimrodx/50/000000/external-email-contact-us-xnimrodx-lineal-xnimrodx-4.png"/></span>
+                                <span th:text="${organization.email}"></span>
+                                <span><a th:href="@{/organization/delete/{id}/(id=${organization.id})}"><img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-delete-multimedia-kiranshastry-solid-kiranshastry.png"/></a></span>
+                                <span><a th:href="@{/organization/detail/{id}/(id=${organization.id})}"><img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-share-interface-kiranshastry-lineal-color-kiranshastry.png"/></a></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</header>
+
+<section th:include="fragments.html :: js"></section>
+
+</body>
+</html>
+
+
+

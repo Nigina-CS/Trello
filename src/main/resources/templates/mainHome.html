@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.6.1/css/bootstrap.min.css">
+    <title>Home Page</title>
+    <link rel="stylesheet" th:href="@{css/mainHome.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Red+Hat+Display&family=Rubik:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<div class="some">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" th:href="@{/}">
+                <img th:src="@{imges/logo.png}" alt=""/>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn  ml-1" th:href="@{/nnn}">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="mt-4">
+                <h1><span style="color: #53b0f3">Wing</span> jamoasining projecti bilan teamda ishlashni osonlashtiring</h1>
+            </div>
+        </div>
+        <div class="col-6">
+            <img th:src="@{imges/mainSiteLogo.png}" alt="" class="img-fluid"/>
+        </div>
+    </div>
+</div>
+<section th:include="fragments.html :: js"></section>
+</body>
+</html>

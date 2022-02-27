@@ -1,0 +1,171 @@
+<section th:fragment="org_create">
+    <div class="modal fade" id="orgCreate" tabindex="-1" role="dialog" aria-labelledby="orgCreateLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orgCreateLabel">Create organization </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/organization/create/}" th:method="post" id="submitButton">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
+                                   placeholder="Name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="code">Code</label>
+                            <input type="number" class="form-control" id="code" name="code" placeholder="Code">
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="number" class="form-control" id="location" name="location" placeholder="Location">
+                        </div>
+                        <div class="form-group">
+                            <label for="logo">Path</label>
+                            <input type="text" class="form-control" id="logo" name="logo" placeholder="Logo Path">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" form="submitButton">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section th:fragment="org_update">
+    <div class="modal fade" id="orgUpdate" tabindex="-1" role="dialog" aria-labelledby="orgUpdateLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orgUpdateLabel">Create organization </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/organization/update/{id}/(id=${organization.id})}" th:method="post" id="updateOrgButton">
+                        <div class="form-group">
+                            <label for="name1">Name</label>
+                            <input type="text" class="form-control" id="name1" aria-describedby="emailHelp"
+                                   placeholder="Name" name="name" th:field="${organization.name}">
+                        </div>
+                        <div class="form-group">
+                            <label for="email1">Email</label>
+                            <input type="text" class="form-control" id="email1" name="email" placeholder="Email" th:field="${organization.email}">
+                        </div>
+                        <div class="form-group">
+                            <label for="code1">Code</label>
+                            <input type="number" class="form-control" id="code1" name="code" placeholder="Code" th:field="${organization.code}">
+                        </div>
+                        <div class="form-group">
+                            <label for="location1">Location</label>
+                            <input type="number" class="form-control" id="location1" name="location" placeholder="Location" th:field="${organization.location}">
+                        </div>
+                        <div class="form-group">
+                            <label for="logo1">Logo path</label>
+                            <input type="text" class="form-control" id="logo1" name="logo" placeholder="Logo path" th:field="${organization.logo}">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" form="updateOrgButton">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section th:fragment="project_create">
+    <div class="modal fade" id="projectCreate" tabindex="-1" role="dialog" aria-labelledby="projectCreateLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectCreateLabel">Create organization </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/project/create/}" th:method="post" id="submitProject">
+                        <div class="form-group">
+                            <label for="nameProject">Name</label>
+                            <input type="text" class="form-control" id="nameProject" aria-describedby="emailHelp"
+                                   placeholder="Name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="tzPathProject">Tz Path</label>
+                            <input type="text" class="form-control" id="tzPathProject" name="tz_path" placeholder="Tz Path">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" form="submitProject">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section th:fragment="admin_create">
+    <div class="modal fade" id="adminCreate" tabindex="-1" role="dialog" aria-labelledby="adminCreateLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adminCreateLabel">Create Admin to Organization </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/auth/create/}" th:method="post" id="submitAdmin">
+                        <div class="form-group">
+                            <label for="f_name">First Name</label>
+                            <input type="text" class="form-control" id="f_name"
+                                   placeholder="First Name" name="firstName">
+                        </div>
+                        <div class="form-group">
+                            <label for="l_name">Last Name</label>
+                            <input type="text" class="form-control" id="l_name"
+                                   placeholder="Last Name" name="LastName">
+                        </div>
+                        <input type="text" hidden name="role" value="ADMIN">
+                        <input type="text" hidden name="organizationId" th:field="${organization.id}">
+                        <div class="form-group">
+                            <label for="email_admin">Email</label>
+                            <input type="text" class="form-control" id="email_admin" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password_admin">Password</label>
+                            <input type="text" class="form-control" id="password_admin" name="password" placeholder="Password">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" form="submitAdmin">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
