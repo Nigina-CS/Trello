@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+    <title>Logout Page</title>
+    <link rel="stylesheet" th:href="@{css/logout.css}">
+</head>
+<body>
+<div class="container">
+    <h3>You want to leave your Account</h3>
+    <div class="btn">
+        <form th:action="@{/logout}" th:method="post">
+            <button type="submit" class="text-decoration-none text-white"><a th:href="@{/organization}">No</a></button>
+            <button type="submit">Yes</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
