@@ -3,6 +3,7 @@
 <head th:include="fragments.html :: home_header('Organization Page','/css/home.css')"></head>
 <body>
 <section th:include="model.html :: admin_create"></section>
+<section th:include="model.html :: org_update"></section>
 
 <header>
     <section th:include="fragments.html :: main_super"></section>
@@ -49,14 +50,14 @@
                             <div class="contents">
                                 <div class="d-flex justify-content-between">
                                     <span class="h5"><b>Users of this organization</b></span>
-                                    <button class="btn btn-success mb-2 ml-auto">
-                                        <a href=""class="text-white text-decoration-none">+Add</a>
+                                    <button class="btn btn-success mb-2 ml-auto" data-toggle="modal" data-target="#adminCreate">
+                                       +Add
                                     </button>
                                 </div>
-                                <div class="bg-white px-3 pt-2 d-flex justify-content-between rounded" th:each="user : ${users}">
-                                    <p th:text="${user.email}"></p>
+                                <div class="bg-white px-3 pt-2 my-2 d-flex justify-content-between rounded align-items-center" th:each="user : ${users}" >
+                                    <b><p th:text="${user.email}"></p></b>
                                     <p>
-                                        <span><a th:href="@{/auth/delete/{id}/(id=${user.id})}"><img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-delete-multimedia-kiranshastry-solid-kiranshastry.png"/></a></span>
+                                        <span><a th:href="@{/auth/delete/{id}/(id=${user.id})}"><img class="w-50" src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-delete-multimedia-kiranshastry-solid-kiranshastry.png"/></a></span>
                                     </p>
                                 </div>
                             </div>

@@ -12,11 +12,11 @@
             <div class="containerm">
                 <h3>Оrganizations Admins </h3>
                 <div class="content" th:each="organization : ${organizations}">
-                    <div class="contents" th:if="${organizations.lenght != 0}">
+                    <div class="contents" >
                         <div class="content-text">
                             <p th:text="${organization.name}"></p>
                         </div>
-                        <div class="box" th:each="user : ${users}" th:if="${users.length !=0}">
+                        <div class="box" th:each="user : ${users}" th:if="${organization.id == user.organizationId}">
                             <p th:text="${user.firstName}+' '+${user.lastName}" ></p>
                             <div class="box-text">
                                 <span><img src="https://img.icons8.com/external-xnimrodx-lineal-xnimrodx/50/000000/external-email-contact-us-xnimrodx-lineal-xnimrodx-4.png"/></span>
@@ -24,9 +24,6 @@
                                 <span><a th:href="@{/auth/delete/{id}/(id=${user.id})}"><img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-delete-multimedia-kiranshastry-solid-kiranshastry.png"/></a></span>
                                 <span><a th:href="@{/auth/detail/{id}/(id=${user.id})}"><img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-share-interface-kiranshastry-lineal-color-kiranshastry.png"/></a></span>
                             </div>
-                        </div>
-                        <div class="box" th:if="${users.length ==0}">
-                            <p>Admin not add yet ! I Think this organization new )</p>
                         </div>
                     </div>
                 </div>

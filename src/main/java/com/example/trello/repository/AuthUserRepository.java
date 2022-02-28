@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface AuthUserRepository extends JpaRepository<AuthUser,Long>,AbstractRepository {
 
-    AuthUser findAuthUserByFirstName(String name);
+    AuthUser findAuthUserByEmail(String email);
 
     @Query(value = "select from auth_user where organization_id = ?",nativeQuery = true)
     List<AuthUser> findAllByOrganization_Id(Long id);
@@ -33,4 +33,7 @@ public interface AuthUserRepository extends JpaRepository<AuthUser,Long>,Abstrac
 
     @Query(value = "update auth_user set blocked = false where id = ?",nativeQuery = true)
     Void unblockUser(Long id);
+
+    @Query(value = "select * from auth_user where isAdmin and organization_id = ?", nativeQuery = true)
+    List<AuthUser> getAllAdminsByOrgId(Long id);
 }

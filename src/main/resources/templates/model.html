@@ -88,8 +88,6 @@
     </div>
 </section>
 
-
-
 <section th:fragment="project_create">
     <div class="modal fade" id="projectCreate" tabindex="-1" role="dialog" aria-labelledby="projectCreateLabel"
          aria-hidden="true">
@@ -145,10 +143,10 @@
                         <div class="form-group">
                             <label for="l_name">Last Name</label>
                             <input type="text" class="form-control" id="l_name"
-                                   placeholder="Last Name" name="LastName">
+                                   placeholder="Last Name" name="lastName">
                         </div>
-                        <input type="text" hidden name="role" value="ADMIN">
-                        <input type="text" hidden name="organizationId" th:field="${organization.id}">
+                        <input type="text"  name="organizationId"  th:field="${organization.id}">
+                        <input type="checkbox" name="admin"  checked="checked">
                         <div class="form-group">
                             <label for="email_admin">Email</label>
                             <input type="text" class="form-control" id="email_admin" name="email" placeholder="Email">

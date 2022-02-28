@@ -2,6 +2,7 @@ package com.example.trello.services;
 
 import com.example.trello.criteria.GenericCriteria;
 import com.example.trello.dto.GenericDto;
+import com.example.trello.dto.auth.UserDto;
 
 import java.io.Serializable;
 import java.util.List;
@@ -42,6 +43,10 @@ public interface GenericService <
     }
 
     default List<D> getAllByOrgId(K id) {
+        return null;
+    }
+
+    default List<D> getAllAdminsByOrgId(K id) {
         return null;
     }
 

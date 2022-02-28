@@ -1,59 +1,62 @@
 package com.example.trello.configs.security;
 
-import com.example.trello.dto.permission.PermissionDto;
 import com.example.trello.entity.auth.AuthUser;
 import com.example.trello.entity.auth.Permission;
-import com.example.trello.services.auth.AuthUserService;
-import com.example.trello.services.permission.PermissionService;
+import com.example.trello.entity.organization.Organization;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
+@Getter
 public class UserDetails implements org.springframework.security.core.userdetails.UserDetails{
+    private final Long id;
+    private final String firstName;
+    private final String lastName;
+    private final String email;
+    private final String password;
+    private final String profile;
+    private final boolean active;
+    private final boolean blocked;
+    private final boolean isSuper;
+    private final Organization organization;
+    private final boolean admin;
 
-    private PermissionService service;
+    private List<Permission> permissions;
 
-    private AuthUser user;
-    private Long id;
 
     public UserDetails(AuthUser user) {
-        this.user = user;
         this.id = user.getId();
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
+        this.email = user.getEmail();
+        this.password = user.getPassword();
+        this.profile = user.getProfile();
+        this.active = user.isActive();
+        this.blocked = user.isBlocked();
+        this.isSuper = user.isSuper();
+        this.organization = user.getOrganization();
+        this.admin = user.isAdmin();
     }
 
-    public Long getId() {
-        return id;
-    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-
-        Set<GrantedAuthority> authorities = new HashSet<>();
-
-        List<PermissionDto> permissions = service.getPermissionByUserId(id);
-
-        if (Objects.isNull(permissions)) {
-            return authorities;
-        }
-
-        authorities.addAll(
-                permissions.stream()
-                        .map(permission -> new SimpleGrantedAuthority(permission.getCode()))
-                        .collect(Collectors.toSet())
-        );
-        return authorities;
+//        return permission.stream().map(permission1 -> new SimpleGrantedAuthority(permission1.getCode())).collect(Collectors.toSet());
+        return new ArrayList<>();
     }
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return user.getFirstName();
+        return firstName+" "+lastName;
     }
 
     @Override
@@ -63,7 +66,7 @@ public class UserDetails implements org.springframework.security.core.userdetail
 
     @Override
     public boolean isAccountNonLocked() {
-        return !user.isBlocked();
+        return !blocked;
     }
 
     @Override
@@ -73,6 +76,7 @@ public class UserDetails implements org.springframework.security.core.userdetail
 
     @Override
     public boolean isEnabled() {
-        return user.isActive();
+        return active;
     }
+
 }

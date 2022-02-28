@@ -1,5 +1,6 @@
 package com.example.trello.services.auth;
 
+import com.example.trello.configs.encryption.PasswordEncryption;
 import com.example.trello.criteria.GenericCriteria;
 import com.example.trello.dto.auth.UserCreateDto;
 import com.example.trello.dto.auth.UserDto;
@@ -17,14 +18,18 @@ import java.util.List;
 @Service
 public class AuthUserServiceImpl extends AbstractService<AuthUserRepository, AuthUserMapper, AuthUserValidator> implements AuthUserService {
 
+    private final PasswordEncryption encryption;
+
     @Autowired
-    public AuthUserServiceImpl(AuthUserRepository repository, AuthUserMapper mapper, AuthUserValidator validator) {
+    public AuthUserServiceImpl(AuthUserRepository repository, AuthUserMapper mapper, AuthUserValidator validator,PasswordEncryption encryption) {
         super(repository, mapper, validator);
+        this.encryption = encryption;
     }
 
     @Override
     public Long create(UserCreateDto createDto) {
         AuthUser user = mapper.fromCreateDto(createDto);
+        user.setPassword(encryption.passwordEncoder().encode(createDto.getPassword()));
         repository.save(user);
         return user.getId();
     }
@@ -76,6 +81,12 @@ public class AuthUserServiceImpl extends AbstractService<AuthUserRepository, Aut
     public Void unblock(Long id) {
         repository.unblockUser(id);
         return null;
+    }
+
+    @Override
+    public List<UserDto> getAllAdminsByOrgId(Long id) {
+        List<AuthUser> users = repository.getAllAdminsByOrgId(id);
+        return mapper.toDto(users);
     }
 
 

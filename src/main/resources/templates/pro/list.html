@@ -19,13 +19,13 @@
                                 + Add
                             </button>
                         </div>
-                        <div class="box" th:each="organization : ${organizations}">
+                        <div class="box" th:each="project : ${projects}">
                             <p > Projects</p>
                             <div class="box-text">
                                 <span><img src="https://img.icons8.com/external-xnimrodx-lineal-xnimrodx/50/000000/external-email-contact-us-xnimrodx-lineal-xnimrodx-4.png"/></span>
-                                <span th:text="${organization.email}"></span>
-                                <span><a th:href="@{/project/delete/{id}/(id=${organization.id})}"><img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-delete-multimedia-kiranshastry-solid-kiranshastry.png"/></a></span>
-                                <span><a th:href="@{/project/detail/{id}/(id=${organization.id})}"><img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-share-interface-kiranshastry-lineal-color-kiranshastry.png"/></a></span>
+                                <span th:text="${project.name}"></span>
+                                <span><a th:href="@{/project/delete/{id}/(id=${project.id})}"><img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-delete-multimedia-kiranshastry-solid-kiranshastry.png"/></a></span>
+                                <span><a th:href="@{/project/detail/{id}/(id=${project.id})}"><img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-share-interface-kiranshastry-lineal-color-kiranshastry.png"/></a></span>
                             </div>
                         </div>
 

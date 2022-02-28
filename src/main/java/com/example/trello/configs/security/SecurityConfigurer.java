@@ -46,7 +46,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/webjars/**", "/css/**");
+        web.ignoring().antMatchers("/webjars/**", "/css/**","/imges/**");
     }
 
     @Override
@@ -58,18 +58,18 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                                 .maxSessionsPreventsLogin(false))
                 .authorizeRequests((authorizeRequests) ->
                         authorizeRequests
-                                .antMatchers("/home","/css","/js")
+                                .antMatchers("/","/css","/js","/imges")
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated())
                 .formLogin((httpSecurityFormLoginConfigurer)->
                         httpSecurityFormLoginConfigurer
                                 .permitAll()
-                                .loginPage("/auth/login")
-                                .loginProcessingUrl("/auth/login")
-                                .usernameParameter("username")
+                                .loginPage("/login")
+                                .loginProcessingUrl("/login")
+                                .usernameParameter("email")
                                 .passwordParameter("password")
-                                .defaultSuccessUrl("/home",true))
+                                .defaultSuccessUrl("/chooseMainUrl/",true))
                 .rememberMe((httpSecurityRememberMeConfigurer ) ->
                         httpSecurityRememberMeConfigurer
                                 .tokenValiditySeconds(rememberMeTokenExpiryInSeconds)
@@ -77,12 +77,12 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                                 .key(rememberMeTokenKey)
                                 .rememberMeParameter("remember-me"))
                 .logout(httpSecurityLogoutConfigurer -> httpSecurityLogoutConfigurer
-                        .logoutUrl("/auth/logout")
-                        .logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout", "POST"))
+                        .logoutUrl("/logout")
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST"))
                         .clearAuthentication(true)
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID","remember-me")
-                        .logoutSuccessUrl("/auth/login"));
+                        .logoutSuccessUrl("/"));
 
     }
 
